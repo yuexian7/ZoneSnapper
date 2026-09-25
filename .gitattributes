@@ -1,17 +1,13 @@
-# 行尾归一化：仓库里存 LF，检出时由 git 决定（第一次提交时满屏 LF→CRLF 警告就是因为没这条）
 * text=auto eol=lf
 
-# 二进制素材不做行尾处理
 *.png binary
 *.jpg binary
 *.dll binary
 *.zip binary
 
-# 这些按文本处理但别被 diff 噪声淹没
 *.cs text
 *.md text
 *.mjs text
 *.py text
-*.ps1 text working-tree-crlf
 *.xml text
 *.csproj text
