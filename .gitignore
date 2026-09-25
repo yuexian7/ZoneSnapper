@@ -28,3 +28,12 @@ Logs/
 # —— 任何本机状态/凭据（Paradox 会话 token 在 AppData 下，本来就不在这儿，写死防手滑）——
 state/
 *.pdxsdk*
+
+# —— 开发期调研产物：整目录不入库（照 AccessAnarchy 那份 .gitignore 的口径）——
+# research/decompiled/ 是 Colossal 程序集的反编译产物（2258 个 .cs），research/verify/ 是它的单文件摘录，
+# 两者都不是我们的可分发物。文档与代码注释引用它们一律写成 research/decompiled/<文件>:<行> 这种指针，
+# 需要原文的人按标准流程步骤 1 自己重跑一次反编译。
+# 唯一例外：research/locale-official-terms.md 由 scripts/extract-official-terms.py 现抽，
+# 那份表是 README/设计文档「官方用词」栏的出处 ⇒ 留在仓库里，改文案时能重跑比对。
+research/
+!research/locale-official-terms.md
