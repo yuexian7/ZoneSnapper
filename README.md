@@ -4,7 +4,9 @@
 
 参照对象是 Paradox Mods 上已下架的 **Subdivisions**（ModId 148238，作者 Sidrus，GitHub 仓库也已删除）。本模组按它的商店页说明与完整更新日志重建其机制，并按需求做了改进（见下）。
 
-> **状态：本地开发版 v0.3.0，未发布到任何平台。** 适配游戏 1.6.2f1。
+> **状态：v0.3.0 已于 2026-09-25 首发上架 Paradox Mods，ModId 160526，`AccessLevel=Private`（列表不公开，公开那一步由作者本人在网页端做）。** 适配游戏 1.6.2f1。
+> 商店页 https://mods.paradoxplaza.com/mods/160526/windows ｜ 源码 https://github.com/yuexian7/ZoneSnapper
+> ⚠ 这一版的行为**仍在逐轮实机验收中**：私有列表不等于"验完了"，八轮反馈的账都记在 `开发笔记.md`。
 >
 > **v0.3.0 是按你第八轮反馈（十条 + 两张截图）重写的版本。** 这一轮先挖到一个根因，再按那个根因改一个模型，
 > 而不是十条各打一颗补丁：上一版「你自己点的格不再被模组挪走」落地之后，描边的两个端点基本都成了自由点，
@@ -143,9 +145,17 @@
 ```bash
 cd ZoneSnapper
 dotnet build -c Release          # T1
-node scripts/verify.mjs          # 离线门禁：版本一致性 + T1 + T2 + T2c + T2b + T3（1274 条断言）
+node scripts/verify.mjs          # 离线门禁：版本一致性 + T2d 发布元数据 + T1 + T2 + T2c + T2b + T3（1274 条断言）
 node scripts/verify.mjs --skip-build
 node scripts/verify.mjs --t3-only
+```
+
+发布相关的三条（都算门禁的一部分，跑之前先看 `开发笔记.md` 的发布记录）：
+
+```bash
+node scripts/verify.mjs          # 里的 T2d：xml 字段形状、封面存在且 ≤2.1MB、ChangeLog 只写当前版、AccessLevel 取值
+node scripts/live-status.mjs     # 线上真状态：私有列表对匿名与作者凭据都返回 403，改读 mods/versions 端点拿凭据
+powershell -File scripts/make-thumbnail.ps1 -Source artwork/cover-source.png -Target Properties/Thumbnail.jpg
 ```
 
 离线门禁覆盖到的：几何与策略层的全部规则（含三个开关背后各档区域各自的吸附口径、每侧独立的人行道外缘宽度、外沿选路、
@@ -159,10 +169,11 @@ Engine/           纯 .NET 几何与策略层（不碰任何游戏类型 ⇒ 可
 GameSide/         唯一的游戏 ECS ↔ 引擎数据转换层
 Systems/          ToolUpdate 的投影与跟随 + ApplyTool 的闭合边补写 + Rendering 的淡色预览与跟随高亮
 Patches/          两个 Harmony postfix
-Properties/       发布元数据（本轮不发布）
+Properties/       发布元数据与封面（ModId 160526 已回填；AccessLevel=Private）
 tests/t3/         无游戏回归壳
-scripts/verify.mjs 离线门禁
-research/         反编译产物与调研（不参与编译、不进 git）
+scripts/          离线门禁 verify.mjs、线上状态 live-status.mjs、封面 make-thumbnail.ps1、官方用词抽取器
+research/         反编译产物与调研（不参与编译、不进 git：那是 Colossal 的程序集产物）
+artwork/          封面原图（Properties/Thumbnail.jpg 由脚本从它生成）
 设计文档.md / 开发笔记.md
 ```
 
