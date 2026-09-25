@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Zone Snapper 发布元数据。这份文件是「线上商店页的镜像」，不是草稿：
+  Update / NewVersion 每次都会重推全部元数据（FillPublishMetadata），网页端手改的内容若不回填到这里，下一次发布就被覆盖掉。
+
+  ⚠ 字段形状（2026-09-25 首发前修的坑）：官方模板（AccessAnarchy/template/content/Properties/PublishConfiguration.xml）
+    与两个已上线模组的发布快照用的都是**扁平**结构，字段名只有
+    ModId / DisplayName / ShortDescription / LongDescription / Thumbnail / Screenshot / Tag / ForumLink /
+    ModVersion / GameVersion / Dependency / RequiredDLC / ChangeLog / ExternalLink / AccessLevel。
+    这份文件以前写的是 Metadata + Name + Author + Files + PreviewImage 那套**不存在的**名字 ⇒ ModPublisher 按名字取值，
+    首发就会把名字/简介/封面全传成空。改回去之前先想清楚这一点。
+    另外：商店侧没有 Author 字段（作者由 Paradox 账号决定）；游戏内那个名字是 ZoneSnapperSetting.kAuthor。
+
+  ⚠ ChangeLog 只写**当前这一个版本**（Playbook v1.1 增补 #2）。首发 PublishNewMod 的请求体里根本没有 changelogEntry 字段，
+    这一段要等第一次 NewVersion 才会被推上去；把历史版本堆在这里 = 那一版会把整套历史当成新版本日志。
+    完整历史在 README.md 与 开发笔记.md。
+
+  ModId：首发时必须留空（PublishNewMod 创建模组并返回号），拿到后**立刻回填**到这里，
+    否则后续 NewVersion 撞 "ModId must be set in configuration"，而改用 PublishNewMod 绕过 = 重复上架一份。
+  AccessLevel：用户口径「官网上不要公开，先 private 状态」⇒ Private；公开那一步由作者本人在网页端做。
+-->
+<PublishConfiguration>
+  <!-- 2026-09-25 首发（PublishNewMod）返回的号，ModPublisher 的输出行原文是「Mod published with Id=160526」。
+       这个号必须留在这里：缺它时 NewVersion 会撞 "ModId must be set in configuration"，
+       而改用 PublishNewMod 绕过 = 同一个模组被重复上架一份。 -->
+  <ModId Value="160526" />
+
+  <DisplayName Value="Zone Snapper" />
+  <ShortDescription Value="Area borders that snap to your roads and preview before you click · 贴合路网，点之前先看到结果" />
+
+  <LongDescription>
+# **Zone Snapper**
+
+Zone Snapper makes the game's own area drawing tools snap the nodes you place onto nearby roads, rail, paths and existing area borders, and traces the border along those networks instead of joining your clicks with straight lines.
+
+No extra button and no separate tool: it follows the tool you already use. Turn it on in the options screen and start drawing.
+
+## What you can switch on
+
+* **Three area tools covered**, matching the game's own tools: Districts, Specialized Industry Areas and Surface Areas (plus landfill and lot-surface areas, which the game draws with the same tool). Off by default: City Border (Map Tiles), in its own "special snap targets" section.
+* **Where nodes snap to, per area type**, the same way the game's own tools differ: Districts take road and rail centre lines (raised ones included, and you choose whether same-height and different-height networks are both allowed); Specialized Industry and Surface Areas take the pavement outer edge rather than the kerb, or the outline of the same building.
+* **Node snap distance**, one slider per area type: 50-300%, where 100% is the distance the game itself assigned to that type. It only controls this mod's snapping - the mod never writes into the game's own alignment data.
+* **Border tracing mode**: Smart (default), Shortest route, Fewest nodes, Fewest corners, Stay on one network.
+* Borders between two nodes are traced along the network, along the **outermost** road rather than a shortcut through an alley, and a node is always placed at a corner or where the trace switches to another network (including a switch to a different height). Roundabouts are followed along their own line instead of being pushed out to the ring road.
+* **One point per junction.** The game stores a crossroads as several separate nodes (main carriage, sidewalks, overlapping layers); the mod merges them back into one representative centre, so a border turns at the same place no matter which direction it arrives from - and a straight run through the junction still gets no extra node.
+* **Attach nodes, not moved nodes**: a node you place yourself is never re-snapped (except on the City Border tool). When it sits a little off the line you wanted, the traced border grows its own snapped node where it joins the network and runs along it from there. The length of the segment is irrelevant, so two far-apart nodes with a continuous road between them really do follow that road.
+* **Node continuation** is the fallback for the other case: when an endpoint has nothing to join within the snap distance, the part that can follow the road still does and only the remainder is joined by the straight line you drew.
+* **Nothing underground is a target**: tunnels, sunken sections and buildings placed underground are ignored by both snapping and tracing. Raised roads are not - they snap and trace normally.
+* **Your straight line crossing another zone is not a veto.** What gets judged is the fitted path, so a clean result is created even when the chord between your two nodes passes over something.
+* **Curve detail** (0-100%): at 0 only corners get nodes; higher values add nodes on bends so the border hugs the road more tightly.
+* **A faint live preview**: while the next node is still following your mouse, or while you drag an existing node, the border it would produce is drawn in a lighter colour first, so you see the result before you commit it. It clears itself as soon as you leave the tool.
+* **Committed areas are never rewritten behind your back**: when a road under a border changes you get a note in the log, and only the re-trace hotkey rewrites the area (what changed gets highlighted, and another hotkey undoes the last such batch). Re-tracing after you drag one of its nodes works the same way.
+
+Hotkeys live in their own tab; at the bottom of it you get a button that resets every option of this mod to its defaults (the four hotkeys get cleared too, so it asks first) and an About block with the version, the author and three links.
+
+## 中文
+
+让游戏自带的区域绘制工具跟着你的路网走：你点的节点吸到附近的道路、铁路、步道或已有边界上，两点之间的边界沿这些网络描出来，而不是把两下点击用直线连上。不需要额外的按钮，也不新增工具 - 它挂在你本来就在用的那个工具上，选项页打开后直接画。
+
+* 覆盖三种工具：市辖区、专门产业区（含垃圾场填埋）、表面区域（含地皮表面区）；城市边界单独一个开关，默认关。
+* 吸附目标按区域类别分档：市辖区取道路/铁路中心线（高架也算，可选是否允许跨高度）；产业区与表面区域取人行道外缘或同一建筑的轮廓。
+* 每类一条「节点吸附距离」滑杆（50%~300%，100% = 游戏为这一类自己配的距离）。它只管模组自己的吸附，**模组不写游戏的任何数据**。
+* 一个路口只认一个代表点：游戏把十字路口存成 2~5 个节点（主路面 + 人行道 + 重叠层），模组把它们归并成一个中心点，任何方向连过来都拐在同一格；直穿路口时不放节点。
+* 你自己点的节点永远不被模组挪走：它离你要的线差几米时，走线会在旁边自己长出一个吸附节点接进网络，再沿路走 - 两点距离多远都不影响。
+* 隧道、下沉段、建在地下的建筑一律不是吸附与描边目标；高架路照旧能贴能描。
+* 「重算贴合区域」按键才写盘，改路不会自己动你的存档，并可用快捷键退回上一次调整。
+
+## Status
+
+Development build (v0.3.0), listed privately while the in-game behaviour is being verified round by round with play-testers. Everything is checked against the decompiled 1.6.2f1 game code, but a private listing is still a test build: expect rough edges and please report them.
+
+* Source code: https://github.com/yuexian7/ZoneSnapper
+* Support: https://ko-fi.com/yuexian7
+	</LongDescription>
+
+  <!-- 这张图由 scripts/make-thumbnail.ps1 从 artwork/cover-source.png 生成（原图 2.36 MB 超服务端 2.1 MB 单图上限，
+       且右下角带生成器水印 ⇒ 必须重编码 + 压一条不透明标题栏）。改扩展名/改文件名时这里要同步：
+       文件不存在时 ModPublisher 不报错，会静默上传 Colossal 自己的占位图当封面。 -->
+  <Thumbnail Value="Properties/Thumbnail.jpg" />
+
+  <Tag Value="Code Mod" />
+
+  <ModVersion Value="0.3.0" />
+  <!-- 游戏本体当前版本 1.6.2f1（读 globalgamemanagers 实证），商店侧写通配 -->
+  <GameVersion Value="1.6.*" />
+
+  <ChangeLog>
+v0.3.0 - rewritten against the eighth round of play-testing feedback. Nothing was renamed, so the values you dialled in carry over.
+
+* Root fix for "auto-fit does nothing, or only works through continuation". Your own nodes are no longer moved by the mod, which had left every segment you draw with two free endpoints - and a free endpoint used to mean "no tracing at all", so the only code path still able to follow a road was node continuation. That is exactly the pair of symptoms: switching continuation off killed the whole feature, leaving it on forced a break at a junction even when a connected route existed. Endpoints now stay precisely where you dropped them, and the traced path grows its own attach node on the kerb or centre line and traces normally from there (statistics: attach=). Continuation is again only the fallback for an end that has nothing nearby.
+* Distance is no longer a gate. The detour budget is a pure ratio again, which is scale-free: two nodes 800 m apart along a road behave like two nodes 80 m apart, and a quarter bend with 45-degree tangents (ratio 1.414) traces.
+* A junction now has one representative point. The game stores a crossroads as 2-5 separate nodes (main node + sidewalk/service/overlapping ones), and which one a border turned at depended on which edge happened to be traversed first. Junctions are merged from short link edges only (roads and rail, never underground, never footpaths), and both tracing and snap candidates use that single centre; whether the centre is worth a node is then decided by the existing straight-line rule, so running straight through a crossroads still adds nothing (statistics: junc=).
+* Industry and surface areas have visible snap paths, and they never run down the middle of the road: an endpoint sitting on a centre line is re-attached to a pavement edge or building outline before tracing, and the finished polyline is checked segment by segment.
+* Underground is out, everywhere: tunnels, sunken cut-and-cover sections and buildings placed underground are no longer snap targets, no longer traceable, and no longer merged into junctions (statistics: under=).
+* Your straight line crossing another zone is no longer a veto - only the actual fitted result is judged.
+* A dragged node stays where you dropped it, and the doubled vertex that could be saved but never triangulated is folded back to one side (statistics: despike=).
+* Removed: the option that scaled the game's own node alignment by writing into the area prefab. The mod never writes into a game prefab now, and an offline gate refuses that code if it ever comes back.
+* New About block at the bottom of the hotkey tab: mod version, author, and three link buttons.
+* Offline regression shell: 1274 assertions, including a new J section (junction merging) and a T12 section pinning the attach-point contract with continuation both on and off.
+  </ChangeLog>
+
+  <ExternalLink Type="github" Url="https://github.com/yuexian7/ZoneSnapper" />
+  <ExternalLink Type="kofi" Url="https://ko-fi.com/yuexian7" />
+
+  <!-- 用户口径：官网上先不公开 ⇒ Private。公开发布由作者本人在网页端切换。 -->
+  <AccessLevel Value="Private" />
+</PublishConfiguration>

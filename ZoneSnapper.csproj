@@ -1,0 +1,143 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<Configurations>Debug;Release</Configurations>
+
+		<!--发布到 Paradox Mods 时所需的元数据文件路径。本轮只本地部署，不执行任何发布命令。-->
+		<PublishConfigurationPath>Properties\PublishConfiguration.xml</PublishConfigurationPath>
+	</PropertyGroup>
+
+	<!--官方工具链（CSII_TOOLPATH 指向 .cache\Modding），必须在第一个 PropertyGroup 之后导入。
+	    CSII_* 是「用户级注册表」环境变量，所以这里显式用 EnvironmentVariableTarget.User 取，不能写 $(CSII_TOOLPATH)。-->
+	<Import Project="$([System.Environment]::GetEnvironmentVariable('CSII_TOOLPATH', 'EnvironmentVariableTarget.User'))\Mod.props" />
+	<Import Project="$([System.Environment]::GetEnvironmentVariable('CSII_TOOLPATH', 'EnvironmentVariableTarget.User'))\Mod.targets" />
+
+	<ItemGroup>
+		<!--本机没有 Visual Studio / net48 目标包，这个包只提供编译期参考程序集，PrivateAssets=all 保证不进产物。-->
+		<PackageReference Include="Microsoft.NETFramework.ReferenceAssemblies" Version="1.0.3" PrivateAssets="all" />
+
+		<!--
+		  本模组必须带 Harmony：AreaToolSystem 的 Apply / Cancel（左键提交节点 / 右键撤销）都是 private 方法，
+		  游戏没有公开「加一个控制点」的入口（FACT：AreaToolSystem 公开面只有 GetControlPoints/GetPrefab/
+		  TrySetPrefab/state/mode/GetAvailableSnapMask 等，见反编译 ATS:2585-3223）。
+		  除这两处事件通知外，本模组一切改动都走 ECS 数据层（写控制点表、写区域 Node 缓冲），
+		  与 AccessAnarchy 的「优先数据编辑、其次 hook」口径一致。
+
+		  版本策略照抄 BridgeTheLanguageGap（理由与实测凭据见 都市天际线2模组开发标准流程.md 步骤 7）：
+		  游戏本体不带 Harmony，ModManager 按【简单名】绑定且忽略版本号 ⇒ 谁先加载谁替全场定 API。
+		  直接 <PackageReference Version="2.3.3"> 走不通：官方 ModPostProcessor 里 Unity.Burst 的 ILHasher
+		  解析这份合并元数据会抛 BadImageFormatException 且进程不退出（构建挂死）。
+		  ⇒ 编译与后处理照旧只见 2.2.2，在 RunModPostProcessor 之后、DeployWIP 之前把输出目录里那份换成 2.3.3。
+		-->
+		<PackageReference Include="Lib.Harmony" Version="2.2.2" />
+	</ItemGroup>
+
+	<!--PackageDownload 只把包取到本机 NuGet 缓存当 2.3.3 那份 dll 的来源，不进引用图、不 copy-local。
+	    ⚠ 它不参与 dotnet build 的隐式还原：清过缓存后第一次必须显式 dotnet restore，否则下面 Target 的 Error 会拦停构建
+	    （这是刻意的：宁可停下，也不能静默退回 2.2.2 把别人的模组弄坏）。-->
+	<ItemGroup>
+		<PackageDownload Include="Lib.Harmony" Version="[2.3.3]" />
+	</ItemGroup>
+
+	<PropertyGroup>
+		<HarmonyRuntimePackageDir>$(NuGetPackageRoot)lib.harmony\2.3.3\</HarmonyRuntimePackageDir>
+		<HarmonyRuntimeDll>$(HarmonyRuntimePackageDir)lib\net48\0Harmony.dll</HarmonyRuntimeDll>
+	</PropertyGroup>
+
+	<!--
+	  覆盖 Mod.targets 的同名 Target，两个目的：
+	  (1) 注入 DOTNET_ROLL_FORWARD=Major —— ModPostProcessor.exe 目标 net6.0 而本机只有 .NET 8；
+	  (2) Exec 之后把 0Harmony.dll 换成 2.3.3 那份。
+	  BeforeTargets="DeployWIP" 是执行顺序的硬约束；换 dll 三步必须写在同一个 Target 体内
+	  （MSBuild 不按 AfterTargets/BeforeTargets 做拓扑排序，跨 Target 相对顺序只由提交顺序决定）。
+	  绝不能同时留两份同名 Target：后声明者整体覆盖先声明者，等于把换 dll 静默删掉。
+	-->
+	<Target Name="RunModPostProcessor" AfterTargets="AfterBuild" BeforeTargets="DeployWIP" Condition="'$(NeedBuild)'">
+		<Error Condition="!Exists('$(ModPostProcessorFullPath)')" Text="Post processor not found, please check the path: $(ModPostProcessorFullPath)" />
+		<Message Text="Run post processor: $(ModPostProcessorArgs)" Importance="high" />
+		<Exec Command="$(ModPostProcessorArgs)" EnvironmentVariables="DOTNET_ROLL_FORWARD=Major" LogStandardErrorAsError="true" />
+
+		<Error Condition="!Exists('$(HarmonyRuntimeDll)')" Text="找不到 2.3.3 的 0Harmony.dll：$(HarmonyRuntimeDll) —— 联网跑一次 dotnet restore 让 PackageDownload 取回来。不能退回 2.2.2：那会让所有引用 Harmony 2.3.3+ 的模组在本模组所在会话里抛 MissingMethodException。" />
+		<Copy SourceFiles="$(HarmonyRuntimeDll)" DestinationFolder="$(OutDir)" OverwriteReadOnlyFiles="true" SkipUnchangedFiles="false" />
+		<Message Text="SwapHarmonyRuntime: $(OutDir)0Harmony.dll 已换成 2.3.3" Importance="high" />
+	</Target>
+
+	<!--ModPublisher.exe 同为 net6.0 目标，同样需要注入。-->
+	<Target Name="RunModPublisher" AfterTargets="Publish">
+		<Error Condition="!Exists('$(ModPublisherPath)')" Text="Mod publisher not found, please check the path: $(ModPublisherPath)" />
+		<Message Text="Run mod publisher: $(ModPublisherArgs)" Importance="high" />
+		<Exec Command="$(ModPublisherArgs)" EnvironmentVariables="DOTNET_ROLL_FORWARD=Major" LogStandardErrorAsError="true" />
+	</Target>
+
+	<!--
+	  research\ 是反编译调研产物（2258 个 .cs）、tests\ 是离线回归壳、releases\ 是发布快照，
+	  全都落在工程树内而 SDK 工程默认通配 **/*.cs —— 不显式排除就会被编进发布产物（Playbook 步骤 2 的坑）。
+	-->
+	<ItemGroup>
+		<Compile Remove="research\**" />
+		<Compile Remove="tests\**" />
+		<Compile Remove="releases\**" />
+		<Compile Remove="tools\**" />
+		<Compile Remove="template\**" />
+		<None Remove="research\**" />
+		<None Remove="tests\**" />
+		<None Remove="releases\**" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<Reference Include="Game">
+			<Private>false</Private>
+		</Reference>
+		<Reference Include="Colossal.Core">
+			<Private>false</Private>
+		</Reference>
+		<Reference Include="Colossal.Mathematics">
+			<Private>false</Private>
+		</Reference>
+		<Reference Include="Colossal.Collections">
+			<Private>false</Private>
+		</Reference>
+		<Reference Include="Colossal.Logging">
+			<Private>false</Private>
+		</Reference>
+		<Reference Include="Colossal.IO.AssetDatabase">
+			<Private>false</Private>
+		</Reference>
+		<Reference Include="Colossal.Localization">
+			<Private>false</Private>
+		</Reference>
+		<Reference Include="UnityEngine.CoreModule">
+			<Private>false</Private>
+		</Reference>
+		<Reference Include="Unity.InputSystem">
+			<Private>false</Private>
+		</Reference>
+		<Reference Include="Unity.Burst">
+			<Private>false</Private>
+		</Reference>
+		<Reference Include="Unity.Collections">
+			<Private>false</Private>
+		</Reference>
+		<Reference Include="Unity.Entities">
+			<Private>false</Private>
+		</Reference>
+		<Reference Include="Unity.Mathematics">
+			<Private>false</Private>
+		</Reference>
+	</ItemGroup>
+
+	<ItemGroup>
+		<Reference Update="System">
+			<Private>false</Private>
+		</Reference>
+		<Reference Update="System.Core">
+			<Private>false</Private>
+		</Reference>
+	</ItemGroup>
+
+	<ItemGroup>
+		<None Include="$(ModPropsFile)" Link="Properties\Mod.props" />
+		<None Include="$(ModTargetsFile)" Link="Properties\Mod.targets" />
+	</ItemGroup>
+
+</Project>
