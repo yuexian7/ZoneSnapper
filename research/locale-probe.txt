@@ -1,0 +1,347 @@
+===== Cities2_Data\Content\BridgesAndPorts\Locale.cok  languages: ['de-DE', 'en-US', 'es-ES', 'fr-FR', 'it-IT', 'ja-JP', 'ko-KR', 'pl-PL', 'pt-BR', 'ru-RU', 'zh-HANS', 'zh-HANT']
+--- key~SNAPPING: 0
+--- key~ToolOptions: 0
+--- key~SUB_SERVICE_NAME: 0
+--- key~Assets.NAME[District Area: 0
+--- key~Assets.NAME[Extractor Lot: 0
+--- key~Assets.NAME[Surface Area: 0
+--- key~Assets.NAME[Map Tiles: 0
+--- key~Toolbar.ELEVATION: 0
+--- key~UNDERGROUND: 0
+--- value~'快速对齐': en 0 / zh-HANS 0
+--- value~'对齐': en 0 / zh-HANS 0
+--- value~'吸附': en 0 / zh-HANS 0
+--- value~'sidewalk': en 0 / zh-HANS 0
+--- value~'kerb': en 0 / zh-HANS 0
+--- value~'curb': en 0 / zh-HANS 0
+--- value~'Snapping': en 0 / zh-HANS 0
+--- value~'snapping': en 0 / zh-HANS 0
+
+===== Cities2_Data\Content\CityStations\Locale.cok  languages: ['de-DE', 'en-US', 'es-ES', 'fr-FR', 'it-IT', 'ja-JP', 'ko-KR', 'pl-PL', 'pt-BR', 'ru-RU', 'zh-HANS', 'zh-HANT']
+--- key~SNAPPING: 0
+--- key~ToolOptions: 0
+--- key~SUB_SERVICE_NAME: 0
+--- key~Assets.NAME[District Area: 0
+--- key~Assets.NAME[Extractor Lot: 0
+--- key~Assets.NAME[Surface Area: 0
+--- key~Assets.NAME[Map Tiles: 0
+--- key~Toolbar.ELEVATION: 0
+--- key~UNDERGROUND: 0
+--- value~'快速对齐': en 0 / zh-HANS 0
+--- value~'对齐': en 0 / zh-HANS 0
+--- value~'吸附': en 0 / zh-HANS 0
+--- value~'sidewalk': en 0 / zh-HANS 0
+--- value~'kerb': en 0 / zh-HANS 0
+--- value~'curb': en 0 / zh-HANS 0
+--- value~'Snapping': en 0 / zh-HANS 0
+--- value~'snapping': en 0 / zh-HANS 0
+
+===== Cities2_Data\Content\DowntownMarketSet\Locale.cok  languages: ['de-DE', 'en-US', 'es-ES', 'fr-FR', 'it-IT', 'ja-JP', 'ko-KR', 'pl-PL', 'pt-BR', 'ru-RU', 'zh-HANS', 'zh-HANT']
+--- key~SNAPPING: 0
+--- key~ToolOptions: 0
+--- key~SUB_SERVICE_NAME: 0
+--- key~Assets.NAME[District Area: 0
+--- key~Assets.NAME[Extractor Lot: 0
+--- key~Assets.NAME[Surface Area: 0
+--- key~Assets.NAME[Map Tiles: 0
+--- key~Toolbar.ELEVATION: 0
+--- key~UNDERGROUND: 0
+--- value~'快速对齐': en 0 / zh-HANS 0
+--- value~'对齐': en 0 / zh-HANS 0
+--- value~'吸附': en 0 / zh-HANS 0
+--- value~'sidewalk': en 0 / zh-HANS 0
+--- value~'kerb': en 0 / zh-HANS 0
+--- value~'curb': en 0 / zh-HANS 0
+--- value~'Snapping': en 0 / zh-HANS 0
+--- value~'snapping': en 0 / zh-HANS 0
+
+===== Cities2_Data\Content\DragonGate\Locale.cok  languages: ['de-DE', 'en-US', 'es-ES', 'fr-FR', 'it-IT', 'ja-JP', 'ko-KR', 'pl-PL', 'pt-BR', 'ru-RU', 'zh-HANS', 'zh-HANT']
+--- key~SNAPPING: 0
+--- key~ToolOptions: 0
+--- key~SUB_SERVICE_NAME: 0
+--- key~Assets.NAME[District Area: 0
+--- key~Assets.NAME[Extractor Lot: 0
+--- key~Assets.NAME[Surface Area: 0
+--- key~Assets.NAME[Map Tiles: 0
+--- key~Toolbar.ELEVATION: 0
+--- key~UNDERGROUND: 0
+--- value~'快速对齐': en 0 / zh-HANS 0
+--- value~'对齐': en 0 / zh-HANS 0
+--- value~'吸附': en 0 / zh-HANS 0
+--- value~'sidewalk': en 0 / zh-HANS 0
+--- value~'kerb': en 0 / zh-HANS 0
+--- value~'curb': en 0 / zh-HANS 0
+--- value~'Snapping': en 0 / zh-HANS 0
+--- value~'snapping': en 0 / zh-HANS 0
+
+===== Cities2_Data\Content\Game\Locale.cok  languages: ['de-DE', 'en-US', 'es-ES', 'fr-FR', 'it-IT', 'ja-JP', 'ko-KR', 'pl-PL', 'pt-BR', 'ru-RU', 'zh-HANS', 'zh-HANT']
+--- key~SNAPPING: 0
+--- key~ToolOptions: 0
+--- key~SUB_SERVICE_NAME: 0
+--- key~Assets.NAME[District Area: 1
+  Assets.NAME[District Area]
+      en='District Creation Tool'
+      zh='市辖区创建工具'  hant='行政區創建工具'  ja='特区作成ツール'  ru='Создание района'
+--- key~Assets.NAME[Extractor Lot: 1
+  Assets.NAME[Extractor Lot]
+      en='Specialized Industry Area Tool'
+      zh='专门产业区工具'  hant='特殊工業功能區域工具'  ja='特化産業エリアツール'  ru='Инструмент района с промышленной специализацией'
+--- key~Assets.NAME[Surface Area: 1
+  Assets.NAME[Surface Area]
+      en='Surface area tool'
+      zh='表面区域规划工具'  hant='地面區域劃分工具'  ja='地表エリアツール'  ru='Инструмент поверхности'
+--- key~Assets.NAME[Map Tiles: 1
+  Assets.NAME[Map Tiles]
+      en='Map Tiles'
+      zh='地图区块'  hant='地圖區塊'  ja='マップタイル'  ru='Клетки карты'
+--- key~Toolbar.ELEVATION: 0
+--- key~UNDERGROUND: 5
+  Assets.NAME[ServiceBuildingSubwayStationUndergroundLoop]
+      en='Service Building Subway Station Underground Loop'
+      zh='服务建筑：地铁站（环形）'  hant='服務建築 地鐵站 地下 循環'  ja='サービス施設 地下鉄駅 地下 ループ'  ru='Служебное здание: подземная станция метро – фоновый звук'
+  Assets.NAME[ServiceBuildingUndergroundParking]
+      en='Service Building Underground Parking'
+      zh='服务建筑：地下停车场'  hant='服務建築 地下停車場'  ja='サービス施設 地下駐車場'  ru='Служебное здание: подземная парковка'
+  Common.ACTION[Enter Underground Mode]
+      en='Underground View'
+      zh='地下视图'  hant='地下視野'  ja='地下ビュー'  ru='Под землей'
+  Common.ACTION[Exit Underground Mode]
+      en='Ground View'
+      zh='地面视图'  hant='地面視野'  ja='地上ビュー'  ru='Обзор с земли'
+  Common.ACTION[Leave Underground Mode]
+      en='Leave Underground'
+      zh='离开地下'  hant='離開地下'  ja='地中モードを解除'  ru='Выйти из обзора подземной части'
+--- value~'快速对齐': en 0 / zh-HANS 0
+--- value~'对齐': en 0 / zh-HANS 1
+  Assets.NAME[UXSnapSFX]
+      en='UX Snap SFX'  zh='UX对齐音效'
+--- value~'吸附': en 0 / zh-HANS 0
+--- value~'sidewalk': en 31 / zh-HANS 0
+  Assets.DESCRIPTION[Alley - Double Sided Parking Angled]
+      en='Narrow two-lane parking road without sidewalks. Features angled parking spots and allows traffic in both directions.'  zh='狭窄的双停车道，没有人行道。配有斜角朝向的停车位，允许车辆双向通行。'
+  Assets.DESCRIPTION[Alley - Double Sided Parking]
+      en='Narrow two-lane parking road without sidewalks. Features perpendicular parking spots and allows traffic in both directions.'  zh='狭窄的双停车道，没有人行道。配有垂直朝向的停车位，允许车辆双向通行。'
+  Assets.DESCRIPTION[Alley Oneway - Double Sided Parking Angled]
+      en='Narrow one-lane parking road without sidewalks. Features angled parking spots and allows traffic in one direction.'  zh='狭窄的单停车道，没有人行道。配有斜角朝向的停车位，允许车辆单向通行。'
+  Assets.DESCRIPTION[Alley Oneway - Double Sided Parking]
+      en='Narrow one-lane parking road without sidewalks. Features perpendicular parking spots and allows traffic in one direction.'  zh='狭窄的单停车道，没有人行道。配有垂直朝向的停车位，允许车辆单向通行。'
+  Assets.DESCRIPTION[Alley Oneway]
+      en='Narrow one-lane road without sidewalks. Allows traffic in one direction.'  zh='狭窄的单车道道路，没有人行道。允许车辆单向通行。'
+  Assets.DESCRIPTION[Alley]
+      en='Narrow two-lane road without sidewalks. Allows traffic in both directions.'  zh='狭窄的双车道道路，没有人行道。允许车辆双向通行。'
+  Assets.DESCRIPTION[BicycleStop01]
+      en='Bicycle parking stand on the sidewalk.'  zh='放置在人行道上的自行车停放架。'
+  Assets.DESCRIPTION[BicycleStop02]
+      en='Bicycle parking stands on the sidewalk.'  zh='放置在人行道上的自行车停放架。'
+  Assets.DESCRIPTION[BicycleStop03]
+      en='Bicycle shelter on the sidewalk.'  zh='放置在人行道上的自行车棚。'
+  Assets.DESCRIPTION[BoardwalkLarge01]
+      en='Wide wooden broadwalk path that connects with the sidewalks of roads and piers.'  zh='宽阔木制步道，能够连接道路上的人行道以及码头。'
+  Assets.DESCRIPTION[BoardwalkLarge02]
+      en='Wide concrete broadwalk path that connects with the sidewalks of roads and piers.'  zh='宽阔混凝土步道，能够连接道路以及码头人行道。'
+  Assets.DESCRIPTION[BoardwalkMedium01]
+      en='Medium wooden broadwalk path that connects with the sidewalks of roads and piers.'  zh='中型木制步道，能够连接道路上的人行道以及码头。'
+  Assets.DESCRIPTION[BoardwalkMedium02]
+      en='Medium concrete broadwalk path that connects with the sidewalks of roads and piers.'  zh='中型混凝土步道，能够连接道路以及码头人行道。'
+  Assets.DESCRIPTION[BoardwalkSmall01]
+      en='Narrow wooden broadwalk path that connects with the sidewalks of roads and piers.'  zh='狭长的木制步道，能够连接道路以及码头人行道。'
+  Assets.DESCRIPTION[BoardwalkSmall02]
+      en='Narrow concrete broadwalk path that connects with the sidewalks of roads and piers.'  zh='狭长的混凝土步道，能够连接道路以及码头人行道。'
+  Assets.DESCRIPTION[EU_BusStop02]
+      en='A European style bus stop with walls, roof and seats. Requires a road with a sidewalk.'  zh='带有墙壁、屋顶和座椅的欧式风格公交站。需要附带人行道的道路。'
+  Assets.DESCRIPTION[EU_BusStopBicycle01]
+      en='A European style bus stop with walls, roof and seats, and also featuring bicycle stands. Requires a road with a sidewalk.'  zh='带有墙壁、屋顶、座椅以及自行车停放架的欧式风格公交站。需要附带人行道的道路。'
+  Assets.DESCRIPTION[NA_BusStop02]
+      en='A North American style bus stop with walls, roof and seats. Requires a road with a sidewalk.'  zh='带有墙壁、屋顶和座椅的北美风格公交站。需要附带人行道的道路。'
+  Assets.DESCRIPTION[NA_BusStopBicycle01]
+      en='A North American style bus stop with walls, roof and seats, and also featuring bicycle stands. Requires a road with a sidewalk.'  zh='带有墙壁、屋顶、座椅以及自行车停放架的北美风格公交站。需要附带人行道的道路。'
+  Assets.DESCRIPTION[OneWayBikePath]
+      en='A one-way path for cyclists that connects seamlessly with the sidewalks of roads.'  zh='一条单向自行车道，可连接其他道路。'
+  Assets.DESCRIPTION[ParkingLaneAlleyShoulderToSidewalk2.5]
+      en='Alley shoulder piece with sidewalk connection.'  zh='连接着人行道的巷道侧道组件。'
+  Assets.DESCRIPTION[ParkingLaneAlleyShoulderToSidewalkFlat2.5]
+      en='Alley shoulder piece for level crossing with sidewalk connection.'  zh='连接着人行道的平整巷道侧道组件。'
+  Assets.DESCRIPTION[Pavement Path]
+      en='A paved path that connects seamlessly with the sidewalks of roads.'  zh='一条人行道，可连接其他道路。'
+  Assets.DESCRIPTION[PedestrianPathWide01]
+      en='A wide paved path that connects seamlessly with the sidewalks of roads.'  zh='一条宽阔的人行道，可连接其他道路。'
+  Assets.DESCRIPTION[PedestrianPathWithBikeLanes]
+      en='A wide divided path for both pedestrians and cyclists that connects seamlessly with the sidewalks of roads.'  zh='一条为行人与骑行者准备的宽阔分隔式道路，可连接其他道路。'
+  Assets.DESCRIPTION[QuayLarge01]
+      en='Wide quay featuring a four-lane road with sidewalks. The quay wall is made of smooth concrete blocks.'  zh='拥有一条四车道道路与人行道的宽阔埠头。由光滑的混凝土块构成的埠头墙壁。'
+  Assets.DESCRIPTION[QuayMedium01]
+      en='Medium quay featuring a two-lane road with sidewalks. The quay wall is made of smooth concrete blocks.'  zh='拥有一条双车道道路与人行道的中型埠头。由光滑的混凝土块构成的埠头墙壁。'
+  Assets.DESCRIPTION[TwoWayBikePath]
+      en='A two-way path for cyclists that connects seamlessly with the sidewalks of roads.'  zh='一条双向自行车道，可连接其他道路。'
+  Assets.DESCRIPTION[Wide Sidewalk]
+      en='A wider than normal sidewalk.'  zh='比一般的人行道更宽。'
+  Chirper.POLICIES[Bike Ban on Sidewalks]:0
+      en='So #bikes are #banned on sidewalks now? How do I get around?'  zh='所以现在 #自行车 #禁止 走人行道了？那我得开始绕路了？'
+  Chirper.POLICIES[Bike Ban on Sidewalks]:1
+      en='I no longer need to worry about being run over by a #cyclist on the #sidewalk. What a relief!'  zh='不用再担心在 #人行道 上被 #自行车 撞了，真是松了口气！'
+--- value~'kerb': en 0 / zh-HANS 0
+--- value~'curb': en 0 / zh-HANS 0
+--- value~'Snapping': en 0 / zh-HANS 0
+--- value~'snapping': en 0 / zh-HANS 0
+
+===== Cities2_Data\Content\LeisureVenues\Locale.cok  languages: ['de-DE', 'en-US', 'es-ES', 'fr-FR', 'it-IT', 'ja-JP', 'ko-KR', 'pl-PL', 'pt-BR', 'ru-RU', 'zh-HANS', 'zh-HANT']
+--- key~SNAPPING: 0
+--- key~ToolOptions: 0
+--- key~SUB_SERVICE_NAME: 0
+--- key~Assets.NAME[District Area: 0
+--- key~Assets.NAME[Extractor Lot: 0
+--- key~Assets.NAME[Surface Area: 0
+--- key~Assets.NAME[Map Tiles: 0
+--- key~Toolbar.ELEVATION: 0
+--- key~UNDERGROUND: 0
+--- value~'快速对齐': en 0 / zh-HANS 0
+--- value~'对齐': en 0 / zh-HANS 0
+--- value~'吸附': en 0 / zh-HANS 0
+--- value~'sidewalk': en 0 / zh-HANS 0
+--- value~'kerb': en 0 / zh-HANS 0
+--- value~'curb': en 0 / zh-HANS 0
+--- value~'Snapping': en 0 / zh-HANS 0
+--- value~'snapping': en 0 / zh-HANS 0
+
+===== Cities2_Data\Content\MediterraneanHeritage\Locale.cok  languages: ['de-DE', 'en-US', 'es-ES', 'fr-FR', 'it-IT', 'ja-JP', 'ko-KR', 'pl-PL', 'pt-BR', 'ru-RU', 'zh-HANS', 'zh-HANT']
+--- key~SNAPPING: 0
+--- key~ToolOptions: 0
+--- key~SUB_SERVICE_NAME: 0
+--- key~Assets.NAME[District Area: 0
+--- key~Assets.NAME[Extractor Lot: 0
+--- key~Assets.NAME[Surface Area: 0
+--- key~Assets.NAME[Map Tiles: 0
+--- key~Toolbar.ELEVATION: 0
+--- key~UNDERGROUND: 0
+--- value~'快速对齐': en 0 / zh-HANS 0
+--- value~'对齐': en 0 / zh-HANS 0
+--- value~'吸附': en 0 / zh-HANS 0
+--- value~'sidewalk': en 0 / zh-HANS 0
+--- value~'kerb': en 0 / zh-HANS 0
+--- value~'curb': en 0 / zh-HANS 0
+--- value~'Snapping': en 0 / zh-HANS 0
+--- value~'snapping': en 0 / zh-HANS 0
+
+===== Cities2_Data\Content\ModernArchitecture\Locale.cok  languages: ['de-DE', 'en-US', 'es-ES', 'fr-FR', 'it-IT', 'ja-JP', 'ko-KR', 'pl-PL', 'pt-BR', 'ru-RU', 'zh-HANS', 'zh-HANT']
+--- key~SNAPPING: 0
+--- key~ToolOptions: 0
+--- key~SUB_SERVICE_NAME: 0
+--- key~Assets.NAME[District Area: 0
+--- key~Assets.NAME[Extractor Lot: 0
+--- key~Assets.NAME[Surface Area: 0
+--- key~Assets.NAME[Map Tiles: 0
+--- key~Toolbar.ELEVATION: 0
+--- key~UNDERGROUND: 0
+--- value~'快速对齐': en 0 / zh-HANS 0
+--- value~'对齐': en 0 / zh-HANS 0
+--- value~'吸附': en 0 / zh-HANS 0
+--- value~'sidewalk': en 0 / zh-HANS 0
+--- value~'kerb': en 0 / zh-HANS 0
+--- value~'curb': en 0 / zh-HANS 0
+--- value~'Snapping': en 0 / zh-HANS 0
+--- value~'snapping': en 0 / zh-HANS 0
+
+===== Cities2_Data\Content\OfficeEvolution\Locale.cok  languages: ['de-DE', 'en-US', 'es-ES', 'fr-FR', 'it-IT', 'ja-JP', 'ko-KR', 'pl-PL', 'pt-BR', 'ru-RU', 'zh-HANS', 'zh-HANT']
+--- key~SNAPPING: 0
+--- key~ToolOptions: 0
+--- key~SUB_SERVICE_NAME: 0
+--- key~Assets.NAME[District Area: 0
+--- key~Assets.NAME[Extractor Lot: 0
+--- key~Assets.NAME[Surface Area: 0
+--- key~Assets.NAME[Map Tiles: 0
+--- key~Toolbar.ELEVATION: 0
+--- key~UNDERGROUND: 0
+--- value~'快速对齐': en 0 / zh-HANS 0
+--- value~'对齐': en 0 / zh-HANS 0
+--- value~'吸附': en 0 / zh-HANS 0
+--- value~'sidewalk': en 0 / zh-HANS 0
+--- value~'kerb': en 0 / zh-HANS 0
+--- value~'curb': en 0 / zh-HANS 0
+--- value~'Snapping': en 0 / zh-HANS 0
+--- value~'snapping': en 0 / zh-HANS 0
+
+===== Cities2_Data\Content\Skyscrapers\Locale.cok  languages: ['de-DE', 'en-US', 'es-ES', 'fr-FR', 'it-IT', 'ja-JP', 'ko-KR', 'pl-PL', 'pt-BR', 'ru-RU', 'zh-HANS', 'zh-HANT']
+--- key~SNAPPING: 0
+--- key~ToolOptions: 0
+--- key~SUB_SERVICE_NAME: 0
+--- key~Assets.NAME[District Area: 0
+--- key~Assets.NAME[Extractor Lot: 0
+--- key~Assets.NAME[Surface Area: 0
+--- key~Assets.NAME[Map Tiles: 0
+--- key~Toolbar.ELEVATION: 0
+--- key~UNDERGROUND: 5
+  Adds the shopping mall and outdoor areas to attract visitors. It also features a high-capacity, underground parking lot, managed by the city administration.
+      en='Assets.NAME[Pack10-CHSignature02]'
+      zh=None  hant=None  ja=None  ru=None
+  Adds underground floors to house the police headquarters, providing patrol and surveillance units, as well as jails and air support. It also includes a large public parking lot for car-loving mayors.
+      en='Assets.NAME[Pack10-OHSignature06]'
+      zh=None  hant=None  ja=None  ru=None
+  Built in International Style and perfect for busy city centers, it includes a post office and underground parking. Can be upgraded to include a Postal Services headquarters with a sorting facility, and a downtown restaurant with a relaxing space for both locals and workers.
+Height: {116:Height}.
+      en='Assets.UPGRADE_NAME[Pack10-PostOffice01_Ext01]'
+      zh=None  hant=None  ja=None  ru=None
+  The additional tower serves as the headquarters of Postal Services, adding an underground sorting facility, increasing the efficiency of office and industrial sectors.
+      en='Assets.UPGRADE_NAME[Pack10-PostOffice01_Ext02]'
+      zh=None  hant=None  ja=None  ru=None
+  With its unique elevated structure, the downtown hospital provides medical coverage across the city. The complex includes a large underground bay for ambulances, a multi-story underground public parking lot, and two helipads reserved for medical use.
+      en='Assets.UPGRADE_NAME[Pack10-RHSignature02_Ext02]'
+      zh=None  hant=None  ja=None  ru=None
+--- value~'快速对齐': en 0 / zh-HANS 0
+--- value~'对齐': en 0 / zh-HANS 0
+--- value~'吸附': en 0 / zh-HANS 0
+--- value~'sidewalk': en 0 / zh-HANS 0
+--- value~'kerb': en 0 / zh-HANS 0
+--- value~'curb': en 0 / zh-HANS 0
+--- value~'Snapping': en 0 / zh-HANS 0
+--- value~'snapping': en 0 / zh-HANS 0
+
+===== Cities2_Data\Content\SupplyChains\Locale.cok  languages: ['de-DE', 'en-US', 'es-ES', 'fr-FR', 'it-IT', 'ja-JP', 'ko-KR', 'pl-PL', 'pt-BR', 'ru-RU', 'zh-HANS', 'zh-HANT']
+--- key~SNAPPING: 0
+--- key~ToolOptions: 0
+--- key~SUB_SERVICE_NAME: 0
+--- key~Assets.NAME[District Area: 0
+--- key~Assets.NAME[Extractor Lot: 0
+--- key~Assets.NAME[Surface Area: 0
+--- key~Assets.NAME[Map Tiles: 0
+--- key~Toolbar.ELEVATION: 0
+--- key~UNDERGROUND: 0
+--- value~'快速对齐': en 0 / zh-HANS 0
+--- value~'对齐': en 0 / zh-HANS 0
+--- value~'吸附': en 0 / zh-HANS 0
+--- value~'sidewalk': en 0 / zh-HANS 0
+--- value~'kerb': en 0 / zh-HANS 0
+--- value~'curb': en 0 / zh-HANS 0
+--- value~'Snapping': en 0 / zh-HANS 0
+--- value~'snapping': en 0 / zh-HANS 0
+
+===== Cities2_Data\Content\UrbanPromenades\Locale.cok  languages: ['de-DE', 'en-US', 'es-ES', 'fr-FR', 'it-IT', 'ja-JP', 'ko-KR', 'pl-PL', 'pt-BR', 'ru-RU', 'zh-HANS', 'zh-HANT']
+--- key~SNAPPING: 0
+--- key~ToolOptions: 0
+--- key~SUB_SERVICE_NAME: 0
+--- key~Assets.NAME[District Area: 0
+--- key~Assets.NAME[Extractor Lot: 0
+--- key~Assets.NAME[Surface Area: 0
+--- key~Assets.NAME[Map Tiles: 0
+--- key~Toolbar.ELEVATION: 0
+--- key~UNDERGROUND: 4
+  A large urban police headquarter with administrative and staff facillities and a jail. Can be upgraded with an extended underground garage and a helipad.
+      en='Assets.UPGRADE_NAME[UbPr_PoliceHQ01_Ext01]'
+      zh=None  hant=None  ja=None  ru=None
+  A medium-sized healthcare facility that provides health care for a large area and takes care of sick and injured citizens. Keeps citizens in its service area healthier. Can be upgraded with specialized clinics and an underground ambulance depot.
+      en='Assets.UPGRADE_NAME[UbPr_MedicalCenter01_Ext01]'
+      zh=None  hant=None  ja=None  ru=None
+  A space-saving underground depot adding several additional ambulances.
+      en='Assets.NAME[UbPr_PoliceHQ01]'
+      zh=None  hant=None  ja=None  ru=None
+  More underground space for police vehicles.
+      en='Assets.NAME[UbPr_FireHouse01]'
+      zh=None  hant=None  ja=None  ru=None
+--- value~'快速对齐': en 0 / zh-HANS 0
+--- value~'对齐': en 0 / zh-HANS 0
+--- value~'吸附': en 0 / zh-HANS 0
+--- value~'sidewalk': en 0 / zh-HANS 0
+--- value~'kerb': en 0 / zh-HANS 0
+--- value~'curb': en 0 / zh-HANS 0
+--- value~'Snapping': en 0 / zh-HANS 0
+--- value~'snapping': en 0 / zh-HANS 0
+

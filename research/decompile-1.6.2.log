@@ -1,0 +1,55 @@
+System.AggregateException: One or more errors occurred. (Error decompiling @060058DE Game.Debug.DebugSystem.BuildRenderingDebugUI)
+ ---> Error decompiling @060058DE Game.Debug.DebugSystem.BuildRenderingDebugUI
+in assembly "F:/SteamLibrary/steamapps/common/Cities Skylines II/Cities2_Data/Managed/Game.dll"
+ ---> System.NullReferenceException: Object reference not set to an instance of an object.
+   at ICSharpCode.Decompiler.CSharp.CallBuilder.DisambiguateDelegateReference(IMethod method, IMethod invokeMethod, ExpectedTargetDetails expectedTargetDetails, ILInstruction thisArg) in CallBuilder.cs:line 1859
+   at ICSharpCode.Decompiler.CSharp.CallBuilder.BuildDelegateReference(IMethod method, IMethod invokeMethod, ExpectedTargetDetails expectedTargetDetails, ILInstruction thisArg) in CallBuilder.cs:line 1832
+   at ICSharpCode.Decompiler.CSharp.CallBuilder.HandleDelegateConstruction(CallInstruction inst) in CallBuilder.cs:line 1766
+   at ICSharpCode.Decompiler.CSharp.CallBuilder.Build(CallInstruction inst, IType typeHint) in CallBuilder.cs:line 195
+   at ICSharpCode.Decompiler.CSharp.ExpressionBuilder.VisitNewObj(NewObj inst, TranslationContext context) in ExpressionBuilder.cs:line 440
+   at ICSharpCode.Decompiler.CSharp.ExpressionBuilder.Translate(ILInstruction inst, IType typeHint) in ExpressionBuilder.cs:line 163
+   at ICSharpCode.Decompiler.CSharp.ExpressionBuilder.BuildArrayInitializerExpression(Block block, InitializedObjectResolveResult initObjRR) in ExpressionBuilder.cs:line 3460
+   at ICSharpCode.Decompiler.CSharp.ExpressionBuilder.TranslateObjectAndCollectionInitializer(Block block) in ExpressionBuilder.cs:line 3385
+   at ICSharpCode.Decompiler.CSharp.ExpressionBuilder.VisitBlock(Block block, TranslationContext context) in ExpressionBuilder.cs:line 3278
+   at ICSharpCode.Decompiler.CSharp.ExpressionBuilder.Translate(ILInstruction inst, IType typeHint) in ExpressionBuilder.cs:line 163
+   at ICSharpCode.Decompiler.CSharp.CallBuilder.BuildArgumentList(ExpectedTargetDetails expectedTargetDetails, ResolveResult target, IMethod method, Int32 firstParamIndex, IReadOnlyList`1 callArguments, IReadOnlyList`1 argumentToParameterMap) in CallBuilder.cs:line 877
+   at ICSharpCode.Decompiler.CSharp.CallBuilder.BuildCollectionInitializerExpression(OpCode callOpCode, IMethod method, InitializedObjectResolveResult target, IReadOnlyList`1 callArguments) in CallBuilder.cs:line 627
+   at ICSharpCode.Decompiler.CSharp.ExpressionBuilder.BuildArrayInitializerExpression(Block block, InitializedObjectResolveResult initObjRR) in ExpressionBuilder.cs:line 3439
+   at ICSharpCode.Decompiler.CSharp.ExpressionBuilder.TranslateObjectAndCollectionInitializer(Block block) in ExpressionBuilder.cs:line 3385
+   at ICSharpCode.Decompiler.CSharp.ExpressionBuilder.VisitBlock(Block block, TranslationContext context) in ExpressionBuilder.cs:line 3278
+   at ICSharpCode.Decompiler.CSharp.ExpressionBuilder.Translate(ILInstruction inst, IType typeHint) in ExpressionBuilder.cs:line 163
+   at ICSharpCode.Decompiler.CSharp.ExpressionBuilder.VisitStLoc(StLoc inst, TranslationContext context) in ExpressionBuilder.cs:line 749
+   at ICSharpCode.Decompiler.CSharp.ExpressionBuilder.Translate(ILInstruction inst, IType typeHint) in ExpressionBuilder.cs:line 163
+   at ICSharpCode.Decompiler.CSharp.StatementBuilder.VisitStLoc(StLoc inst) in StatementBuilder.cs:line 116
+   at ICSharpCode.Decompiler.CSharp.StatementBuilder.Convert(ILInstruction inst) in StatementBuilder.cs:line 80
+   at ICSharpCode.Decompiler.CSharp.StatementBuilder.ConvertBlockContainer(BlockStatement blockStatement, BlockContainer container, IEnumerable`1 blocks, Boolean isLoop) in StatementBuilder.cs:line 1443
+   at ICSharpCode.Decompiler.CSharp.StatementBuilder.ConvertBlockContainer(BlockContainer container, Boolean isLoop) in StatementBuilder.cs:line 1347
+   at ICSharpCode.Decompiler.CSharp.StatementBuilder.VisitBlockContainer(BlockContainer container) in StatementBuilder.cs:line 1233
+   at ICSharpCode.Decompiler.CSharp.StatementBuilder.Convert(ILInstruction inst) in StatementBuilder.cs:line 80
+   at ICSharpCode.Decompiler.CSharp.CSharpDecompiler.DecompileBody(IMethod method, EntityDeclaration entityDecl, DecompileRun decompileRun, ITypeResolveContext decompilationContext) in CSharpDecompiler.cs:line 1780
+-- continuing with outer exception (ICSharpCode.Decompiler.DecompilerException) --
+   at ICSharpCode.Decompiler.CSharp.CSharpDecompiler.DecompileBody(IMethod method, EntityDeclaration entityDecl, DecompileRun decompileRun, ITypeResolveContext decompilationContext) in CSharpDecompiler.cs:line 1795
+   at ICSharpCode.Decompiler.CSharp.CSharpDecompiler.DoDecompile(IMethod method, DecompileRun decompileRun, ITypeResolveContext decompilationContext) in CSharpDecompiler.cs:line 1644
+   at ICSharpCode.Decompiler.CSharp.CSharpDecompiler.<>c__DisplayClass75_0.<DoDecompile>g__DoDecompileMember|0(IEntity entity, RecordDecompiler recordDecompiler, PartialTypeInfo partialType) in CSharpDecompiler.cs:line 1519
+   at ICSharpCode.Decompiler.CSharp.CSharpDecompiler.DoDecompile(ITypeDefinition typeDef, DecompileRun decompileRun, ITypeResolveContext decompilationContext) in CSharpDecompiler.cs:line 1382
+   at ICSharpCode.Decompiler.CSharp.CSharpDecompiler.DoDecompileTypes(IEnumerable`1 types, DecompileRun decompileRun, ITypeResolveContext decompilationContext, SyntaxTree syntaxTree) in CSharpDecompiler.cs:line 656
+   at ICSharpCode.Decompiler.CSharp.CSharpDecompiler.DecompileTypes(IEnumerable`1 types) in CSharpDecompiler.cs:line 955
+   at ICSharpCode.Decompiler.CSharp.ProjectDecompiler.WholeProjectDecompiler.<>c__DisplayClass46_0.<WriteCodeFilesInProject>b__5(IGrouping`2 file) in WholeProjectDecompiler.cs:line 289
+   at System.Threading.Tasks.Parallel.<>c__DisplayClass43_0`2.<PartitionerForEachWorker>b__1(IEnumerator& partitionState, Int64 timeout, Boolean& replicationDelegateYieldedBeforeCompletion) in offset 259
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw() in offset 17
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw(Exception source) in offset 0
+   at System.Threading.Tasks.Parallel.<>c__DisplayClass43_0`2.<PartitionerForEachWorker>b__1(IEnumerator& partitionState, Int64 timeout, Boolean& replicationDelegateYieldedBeforeCompletion) in offset 609
+   at System.Threading.Tasks.TaskReplicator.Replica.Execute() in offset 35
+   --- End of inner exception stack trace ---
+   at System.Threading.Tasks.TaskReplicator.Run[TState](ReplicatableUserAction`1 action, ParallelOptions options, Boolean stopOnFirstFailure)
+   at System.Threading.Tasks.Parallel.PartitionerForEachWorker[TSource,TLocal](Partitioner`1 source, ParallelOptions parallelOptions, Action`1 simpleBody, Action`2 bodyWithState, Action`3 bodyWithStateAndIndex, Func`4 bodyWithStateAndLocal, Func`5 bodyWithEverything, Func`1 localInit, Action`1 localFinally)
+--- End of stack trace from previous location ---
+   at System.Threading.Tasks.Parallel.PartitionerForEachWorker[TSource,TLocal](Partitioner`1 source, ParallelOptions parallelOptions, Action`1 simpleBody, Action`2 bodyWithState, Action`3 bodyWithStateAndIndex, Func`4 bodyWithStateAndLocal, Func`5 bodyWithEverything, Func`1 localInit, Action`1 localFinally)
+   at System.Threading.Tasks.Parallel.ForEach[TSource](Partitioner`1 source, ParallelOptions parallelOptions, Action`1 body)
+   at ICSharpCode.Decompiler.CSharp.ProjectDecompiler.WholeProjectDecompiler.<>c__DisplayClass46_0.<WriteCodeFilesInProject>g__ProcessFiles|3(List`1 files) in /_/ICSharpCode.Decompiler/CSharp/ProjectDecompiler/WholeProjectDecompiler.cs:line 270
+   at ICSharpCode.Decompiler.CSharp.ProjectDecompiler.WholeProjectDecompiler.WriteCodeFilesInProject(MetadataFile module, IList`1 partialTypes, CancellationToken cancellationToken) in /_/ICSharpCode.Decompiler/CSharp/ProjectDecompiler/WholeProjectDecompiler.cs:line 225
+   at ICSharpCode.Decompiler.CSharp.ProjectDecompiler.WholeProjectDecompiler.DecompileProject(MetadataFile file, String targetDirectory, TextWriter projectFileWriter, CancellationToken cancellationToken) in /_/ICSharpCode.Decompiler/CSharp/ProjectDecompiler/WholeProjectDecompiler.cs:line 154
+   at ICSharpCode.ILSpyCmd.ILSpyCmdProgram.DecompileAsProject(String assemblyFileName, String projectFileName) in D:\a\ILSpy\ILSpy\ICSharpCode.ILSpyCmd\IlspyCmdProgram.cs:line 385
+   at ICSharpCode.ILSpyCmd.ILSpyCmdProgram.OnExecuteAsync(CommandLineApplication app) in D:\a\ILSpy\ILSpy\ICSharpCode.ILSpyCmd\IlspyCmdProgram.cs:line 194
+You are not using the latest version of the tool, please update.
+Latest version is '11.0.0.9375' (yours is '9.0.0.7889')
